@@ -25,6 +25,9 @@ def build_grouped_csv(fname):
                         age = int(age)
                     except ValueError:
                         continue
+                    except:
+                        print("Found an error while working on " +
+                              state + ": " + district)
                     try:
                         if age >= 18 and age < 45:
                             district_dict[district]["persons"]["18-44"] += int(
