@@ -25,24 +25,31 @@ def build_grouped_csv(fname):
                         age = int(age)
                     except ValueError:
                         continue
-                    if age >= 18 and age < 45:
-                        district_dict[district]["persons"]["18-44"] += int(
-                            persons)
-                        district_dict[district]["males"]["18-44"] += int(males)
-                        district_dict[district]["females"]["18-44"] += int(
-                            females)
-                    if age >= 45 and age < 60:
-                        district_dict[district]["persons"]["45-59"] += int(
-                            persons)
-                        district_dict[district]["males"]["45-59"] += int(males)
-                        district_dict[district]["females"]["45-59"] += int(
-                            females)
-                    if age >= 60:
-                        district_dict[district]["persons"]["60+"] += int(
-                            persons)
-                        district_dict[district]["males"]["60+"] += int(males)
-                        district_dict[district]["females"]["60+"] += int(
-                            females)
+                    try:
+                        if age >= 18 and age < 45:
+                            district_dict[district]["persons"]["18-44"] += int(
+                                persons)
+                            district_dict[district]["males"]["18-44"] += int(
+                                males)
+                            district_dict[district]["females"]["18-44"] += int(
+                                females)
+                        if age >= 45 and age < 60:
+                            district_dict[district]["persons"]["45-59"] += int(
+                                persons)
+                            district_dict[district]["males"]["45-59"] += int(
+                                males)
+                            district_dict[district]["females"]["45-59"] += int(
+                                females)
+                        if age >= 60:
+                            district_dict[district]["persons"]["60+"] += int(
+                                persons)
+                            district_dict[district]["males"]["60+"] += int(
+                                males)
+                            district_dict[district]["females"]["60+"] += int(
+                                females)
+                    except:
+                        print("Found an error while working on " +
+                              state + ": " + district)
                 else:
                     district_dict[district] = {
                         "state": state,
